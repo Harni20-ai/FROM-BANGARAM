@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>💛 Us — Together Forever 💛</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Great+Vibes&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold: #D4AF37; --gold-light: #FFD700; --red-deep: #8B0000;
+      --ivory: #F8F1E5; --beige: #E6C9A8; --orange: #FF6F00;
+      --font-h: 'Cinzel Decorative', serif;
+      --font-b: 'Cormorant Garamond', serif;
+      --font-a: 'Great Vibes', cursive;
+    }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
+    body { font-family: var(--font-b); background: #0a0400; color: #f0e6d2; overflow-x: hidden; line-height: 1.6; }
+
+    /* BG */
+    .bg-fixed { position: fixed; inset: 0; z-index: -2; background: url('assets/wedding-bg.png') center/cover no-repeat; filter: blur(10px) brightness(0.4); transform: scale(1.1); }
+    .bg-overlay { position: fixed; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(10,4,0,.7), rgba(10,4,0,.3) 50%, rgba(10,4,0,.7)); }
+    canvas { position: fixed; inset: 0; z-index: 1; pointer-events: none; }
+
+    /* CONTENT */
+    .content { position: relative; z-index: 2; }
+
+    /* HERO */
+    .us-hero { min-height: 60vh; display: flex; align-items: center; justify-content: center; padding: 60px 20px; text-align: center; }
+    .us-hero h1 {
+      font-family: var(--font-a); font-size: clamp(2.5rem, 6vw, 4.5rem);
+      color: var(--gold-light); text-shadow: 0 0 40px rgba(212,175,55,0.5);
+      margin-bottom: 10px;
+    }
+    .us-hero p { font-family: var(--font-b); color: var(--beige); font-size: 1.2rem; font-style: italic; margin-top: 10px; }
+    .us-hero .tagline {
+      font-family: var(--font-h); font-size: 1rem; color: var(--gold);
+      letter-spacing: 4px; margin-top: 20px; opacity: 0.8;
+    }
+
+    /* DIVIDER */
+    .divider { display: flex; align-items: center; justify-content: center; gap: 20px; padding: 30px 0; }
+    .dline { width: 100px; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+    .ddiya { font-size: 1.5rem; animation: diyaPulse 2s ease-in-out infinite; filter: drop-shadow(0 0 10px rgba(255,111,0,0.6)); }
+
+    /* VIDEO SECTION */
+    .video-section { padding: 40px 20px; max-width: 900px; margin: 0 auto; }
+    .video-title {
+      font-family: var(--font-h); text-align: center;
+      font-size: clamp(1.3rem, 3vw, 2rem);
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text; margin-bottom: 30px;
+    }
+    .video-frame {
+      position: relative; border: 3px solid var(--gold); border-radius: 16px;
+      overflow: hidden; box-shadow: 0 0 60px rgba(212,175,55,0.15), 0 20px 60px rgba(0,0,0,0.3);
+      background: #000;
+    }
+    .video-frame::before, .video-frame::after {
+      content: ''; position: absolute; width: 30px; height: 30px; border: 3px solid var(--gold); z-index: 3; pointer-events: none;
+    }
+    .video-frame::before { top: 8px; left: 8px; border-right: none; border-bottom: none; }
+    .video-frame::after { bottom: 8px; right: 8px; border-left: none; border-top: none; }
+    .video-frame video { width: 100%; display: block; border-radius: 13px; }
+    .video-caption {
+      text-align: center; margin-top: 20px; font-family: var(--font-a);
+      font-size: 1.5rem; color: var(--gold); text-shadow: 0 0 15px rgba(212,175,55,0.3);
+    }
+
+    /* MESSAGE */
+    .love-msg {
+      max-width: 700px; margin: 50px auto; padding: 40px; text-align: center;
+      border: 2px solid rgba(212,175,55,0.3); border-radius: 16px;
+      background: rgba(248,241,229,0.06); backdrop-filter: blur(8px);
+    }
+    .love-msg p {
+      font-size: 1.15rem; color: var(--beige); line-height: 2; font-style: italic;
+    }
+
+    /* NAV BUTTONS */
+    .nav-buttons { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; padding: 40px 20px; }
+    .nav-btn {
+      display: inline-block; padding: 14px 35px;
+      font-family: var(--font-h); font-size: 0.85rem; letter-spacing: 2px;
+      border: 2px solid var(--gold); border-radius: 50px;
+      text-decoration: none; transition: all 0.3s ease; cursor: pointer;
+    }
+    .nav-btn-gold { background: linear-gradient(135deg, var(--gold), var(--gold-light)); color: #1a0a00; }
+    .nav-btn-outline { background: transparent; color: var(--gold); }
+    .nav-btn:hover { transform: scale(1.05); box-shadow: 0 0 30px rgba(212,175,55,0.3); }
+
+    /* FOOTER */
+    .us-footer { text-align: center; padding: 50px 20px; border-top: 1px solid rgba(212,175,55,0.15); }
+    .us-footer p { font-family: var(--font-a); font-size: 1.3rem; color: var(--gold); }
+    .us-footer .diyas { display: flex; gap: 20px; justify-content: center; margin: 15px 0; font-size: 1.5rem; }
+    .fd { animation: diyaPulse 2s ease-in-out infinite; }
+    .fd:nth-child(2) { animation-delay: 0.5s; }
+    .fd:nth-child(3) { animation-delay: 1s; }
+    .us-footer .sub { font-family: var(--font-b); font-size: 0.85rem; color: var(--beige); opacity: 0.6; margin-top: 10px; }
+
+    /* REVEAL */
+    .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* KEYFRAMES */
+    @keyframes diyaPulse {
+      0%, 100% { opacity: 1; filter: drop-shadow(0 0 8px rgba(255,111,0,0.6)); }
+      50% { opacity: 0.7; filter: drop-shadow(0 0 22px rgba(255,111,0,0.9)); }
+    }
+    @keyframes floatS { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
+
+    @media (max-width: 768px) {
+      .love-msg { margin: 30px 15px; padding: 25px; }
+      .nav-buttons { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-fixed"></div>
+  <div class="bg-overlay"></div>
+  <canvas id="goldCanvas"></canvas>
+
+  <div class="content">
+
+    <!-- HERO -->
+    <section class="us-hero">
+      <div>
+        <h1>Us 💛</h1>
+        <p>My Janu, My Bangaram, My Sweetu — This is our story</p>
+        <div class="tagline">~ TOGETHER FOREVER ~</div>
+      </div>
+    </section>
+
+    <div class="divider"><span class="dline"></span><span class="ddiya">🪔</span><span class="dline"></span></div>
+
+    <!-- TOGETHER VIDEO -->
+    <section class="video-section reveal">
+      <h2 class="video-title">💕 Together — Our Beautiful Journey 💕</h2>
+      <div class="video-frame">
+        <video controls autoplay loop playsinline>
+          <source src="assets/together.mp4" type="video/mp4">
+        </video>
+      </div>
+      <p class="video-caption">Every moment with you is a blessing, my Muddu 💛</p>
+    </section>
+
+    <div class="divider"><span class="dline"></span><span class="ddiya">🪔</span><span class="dline"></span></div>
+
+    <!-- LOVE MESSAGE -->
+    <section class="love-msg reveal">
+      <p>
+        My dearest Cuta, every second of this video is a reminder of why I fell in love with you.
+        You are my Bangaram, my Nanna, my Sweetheart — the most beautiful soul I have ever known.
+        Watching us together makes my heart overflow with gratitude.
+        Thank you for being my everything, Janu.
+        I love you more than all the stars in the sky, my Sweetu. 💛
+      </p>
+    </section>
+
+    <!-- NAVIGATION -->
+    <div class="nav-buttons reveal">
+      <a href="index.html" class="nav-btn nav-btn-gold">💍 Back to Proposal</a>
+      <a href="celebration.html" class="nav-btn nav-btn-outline">🎉 Celebration</a>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="us-footer">
+      <p>Together Forever, My Bangaram 💛</p>
+      <div class="diyas">
+        <span class="fd">🪔</span><span class="fd">🪔</span><span class="fd">🪔</span>
+      </div>
+      <p class="sub">🥥 Janu • Bangaram • Cuta • Sweetu • Muddu • Nanna • Sweetheart 🥥</p>
+    </footer>
+
+  </div>
+
+  <script>
+    // Gold particles
+    const c = document.getElementById('goldCanvas'), ctx = c.getContext('2d');
+    let ps = [];
+    function resize() { c.width = innerWidth; c.height = innerHeight; } resize();
+    window.addEventListener('resize', resize);
+    class P {
+      constructor() { this.reset(); }
+      reset() {
+        this.x = Math.random() * c.width; this.y = c.height + Math.random() * 80;
+        this.s = Math.random() * 3 + 1; this.vy = -(Math.random() * .5 + .2);
+        this.vx = (Math.random() - .5) * .3; this.o = Math.random() * .6 + .2;
+        this.g = Math.random() > .7;
+      }
+      update() { this.y += this.vy; this.x += this.vx; this.o -= .001; if (this.y < -10 || this.o <= 0) this.reset(); }
+      draw() {
+        ctx.save(); ctx.globalAlpha = this.o;
+        if (this.g) { ctx.shadowBlur = 15; ctx.shadowColor = '#FFD700'; }
+        ctx.fillStyle = '#D4AF37'; ctx.beginPath(); ctx.arc(this.x, this.y, this.s, 0, Math.PI * 2); ctx.fill(); ctx.restore();
+      }
+    }
+    const mob = innerWidth < 768;
+    for (let i = 0; i < (mob ? 30 : 60); i++) { const p = new P(); p.y = Math.random() * c.height; ps.push(p); }
+    (function anim() { ctx.clearRect(0, 0, c.width, c.height); ps.forEach(p => { p.update(); p.draw(); }); requestAnimationFrame(anim); })();
+
+    // Scroll reveal
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>
