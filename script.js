@@ -1,5 +1,18 @@
-// ===== LOADING SCREEN =====
-window.addEventListener('load', () => {
+// ===== ENTER SITE (starts music immediately on tap) =====
+function enterSite() {
+  // Start music IMMEDIATELY on user click
+  const bgMusic = document.getElementById('bgMusic');
+  bgMusic.volume = 0.5;
+  bgMusic.play();
+  isPlaying = true;
+  document.getElementById('musicBtn').classList.add('playing');
+  document.getElementById('playPauseBtn').textContent = '⏸ Pause';
+
+  // Hide enter screen, show loading animation
+  document.getElementById('enterScreen').style.display = 'none';
+  document.getElementById('loadingScreen').style.display = 'flex';
+
+  // After loading animation, reveal the site
   setTimeout(() => {
     document.getElementById('loadingScreen').classList.add('hidden');
     initParticles();
@@ -8,8 +21,8 @@ window.addEventListener('load', () => {
     initMessageWords();
     initTimelineScroll();
     initParallax();
-  }, 3000);
-});
+  }, 2500);
+}
 
 // ===== PARALLAX SCROLL =====
 function initParallax() {
@@ -340,20 +353,6 @@ function launchFireworks() {
 let isPlaying = false;
 let customAudio = null;
 const bgMusic = document.getElementById('bgMusic');
-
-// Auto-play after loading screen
-window.addEventListener('load', () => {
-  setTimeout(() => {
-    bgMusic.volume = 0.5;
-    bgMusic.play().then(() => {
-      isPlaying = true;
-      document.getElementById('musicBtn').classList.add('playing');
-      document.getElementById('playPauseBtn').textContent = '⏸ Pause';
-    }).catch(() => {
-      // Browser blocked autoplay - user needs to click
-    });
-  }, 3200);
-});
 
 function toggleMusicPanel() {
   document.getElementById('musicPanel').classList.toggle('open');

@@ -10,8 +10,16 @@
 <body>
   <audio id="bgMusic" src="assets/sakha.mp4" loop preload="auto"></audio>
 
+  <!-- CLICK TO ENTER -->
+  <div class="entrance-overlay" id="clickEnter" onclick="enterCelebration()" style="cursor:pointer;">
+    <div class="entrance-flame"></div>
+    <p class="entrance-text" style="animation-delay:0s; opacity:1;">🙏 Tap to Enter the Celebration 🙏</p>
+    <p style="font-family: var(--font-b); color: #E6C9A8; font-size: 0.9rem; margin-top: 15px; opacity: 0.7;">~ My Bangaram Said YES ~</p>
+    <div class="entrance-shimmer"></div>
+  </div>
+
   <!-- ENTRANCE OVERLAY -->
-  <div class="entrance-overlay" id="entranceOverlay">
+  <div class="entrance-overlay" id="entranceOverlay" style="display:none;">
     <div class="entrance-flame"></div>
     <p class="entrance-text">Entering the Sacred Mandap...</p>
     <div class="entrance-shimmer"></div>

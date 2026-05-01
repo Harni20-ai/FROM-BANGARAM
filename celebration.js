@@ -1,12 +1,27 @@
 // === ENTRANCE ===
-window.addEventListener('load', () => {
-  // Launch initial fireworks immediately
+// === ENTER CELEBRATION (starts Sakha immediately on tap) ===
+function enterCelebration() {
+  // Start Sakha music IMMEDIATELY
+  const bgMusic = document.getElementById('bgMusic');
+  bgMusic.volume = 0.5;
+  bgMusic.play();
+  playing = true;
+  document.getElementById('musicBtn').classList.add('playing');
+  document.getElementById('playBtn').textContent = '⏸ Pause';
+
+  // Hide click screen, show entrance animation
+  document.getElementById('clickEnter').style.display = 'none';
+  document.getElementById('entranceOverlay').style.display = 'flex';
+
+  // Launch fireworks during entrance
   launchFireworks();
+
+  // After entrance animation, reveal site
   setTimeout(() => {
     document.getElementById('entranceOverlay').classList.add('hidden');
     initGold(); initPetals(); initScroll(); initBlessing();
-  }, 3000);
-});
+  }, 2500);
+}
 
 // === GOLD PARTICLES ===
 function initGold() {
@@ -142,18 +157,6 @@ function initBlessing() {
 let playing = false;
 let customAudio = null;
 const bgMusic = document.getElementById('bgMusic');
-
-// Auto-play sakha after entrance screen
-window.addEventListener('load', () => {
-  setTimeout(() => {
-    bgMusic.volume = 0.5;
-    bgMusic.play().then(() => {
-      playing = true;
-      document.getElementById('musicBtn').classList.add('playing');
-      document.getElementById('playBtn').textContent = '⏸ Pause';
-    }).catch(() => {});
-  }, 3200);
-});
 
 function togglePanel() { document.getElementById('musicPanel').classList.toggle('open'); }
 

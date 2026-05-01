@@ -14,8 +14,17 @@
 
   <audio id="bgMusic" src="assets/tharime.mp4" loop preload="auto"></audio>
 
+  <!-- ===== CLICK TO ENTER ===== -->
+  <div class="loading-screen" id="enterScreen" onclick="enterSite()" style="cursor:pointer;">
+    <div class="loading-flame"></div>
+    <div class="loading-diya"></div>
+    <p class="loading-text" style="animation-delay:0s; opacity:1;">🙏 Tap to Enter the Sacred Mandap 🙏</p>
+    <p style="font-family: var(--font-body); color: #E6C9A8; font-size: 0.9rem; margin-top: 15px; opacity: 0.7;">~ A Divine Proposal Awaits ~</p>
+    <div class="loading-shimmer"></div>
+  </div>
+
   <!-- ===== LOADING SCREEN ===== -->
-  <div class="loading-screen" id="loadingScreen">
+  <div class="loading-screen" id="loadingScreen" style="display:none;">
     <div class="loading-flame"></div>
     <div class="loading-diya"></div>
     <p class="loading-text">A Sacred Beginning...</p>
