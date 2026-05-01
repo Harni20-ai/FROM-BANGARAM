@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A sacred and romantic wedding proposal dedicated to Janu - inspired by Tirupati temple traditions">
+  <title>💛 Janu, Will You Marry Me Again? 💛</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <audio id="bgMusic" src="assets/tharime.mp4" loop preload="auto"></audio>
+
+  <!-- ===== LOADING SCREEN ===== -->
+  <div class="loading-screen" id="loadingScreen">
+    <div class="loading-flame"></div>
+    <div class="loading-diya"></div>
+    <p class="loading-text">A Sacred Beginning...</p>
+    <div class="loading-shimmer"></div>
+  </div>
+
+  <!-- ===== BACKGROUND LAYERS ===== -->
+  <div class="parallax-bg" id="parallaxBg"></div>
+  <div class="bg-overlay"></div>
+  <div class="light-rays"></div>
+
+  <!-- ===== PARTICLE CANVASES ===== -->
+  <canvas id="particles-canvas"></canvas>
+  <canvas id="petals-canvas"></canvas>
+  <canvas id="fireworks-canvas"></canvas>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <div class="main-content">
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero" id="hero">
+      <div class="hero-content">
+        <div class="temple-frame">
+          <span class="banana-leaf top-left">🌿</span>
+          <span class="banana-leaf top-right">🌿</span>
+          <span class="banana-leaf bot-left">🌿</span>
+          <span class="banana-leaf bot-right">🌿</span>
+          <span class="hanging-lamp left">🪔</span>
+          <span class="hanging-lamp right">🪔</span>
+          <span class="hero-om">🕉️</span>
+          <h1>Janu, Will You Marry Me Again?</h1>
+          <p class="subtitle">In the light of a thousand diyas, my heart finds its way back to you</p>
+          <p class="subtitle2">A sacred proposal, blessed by the divine grace of Lord Venkateswara at Tirumala</p>
+          <p class="subtitle" style="margin-top: 20px; animation-delay: 1.6s; font-size: clamp(1.4rem, 3.5vw, 2.2rem); color: #D4AF37;">~ Together Forever ~</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== DIVIDER ===== -->
+    <div class="section-divider">
+      <div class="divider-line"></div>
+      <div class="divider-diya"></div>
+      <div class="divider-line"></div>
+    </div>
+
+    <!-- ===== LOVE STORY TIMELINE ===== -->
+    <section class="timeline-section" id="timeline">
+      <h2 class="section-title reveal">🌸 Our Sacred Journey Together 🌸</h2>
+      <div class="timeline">
+        <div class="timeline-line-progress" id="timelineProgress"></div>
+
+        <div class="timeline-item" data-delay="0">
+          <span class="timeline-icon">🌸</span>
+          <div class="timeline-year">THE BEGINNING</div>
+          <h3 class="timeline-title">When Our Eyes First Met</h3>
+          <p class="timeline-desc">Like two stars destined to collide, our souls recognized each other in a crowded world. The universe conspired to bring us together.</p>
+        </div>
+
+        <div class="timeline-item right" data-delay="200">
+          <span class="timeline-icon">💕</span>
+          <div class="timeline-year">THE FIRST SPARK</div>
+          <h3 class="timeline-title">Falling In Love</h3>
+          <p class="timeline-desc">Every conversation deepened our bond. Every smile exchanged wrote a new verse in our love story. My heart knew — you were the one.</p>
+        </div>
+
+        <div class="timeline-item" data-delay="400">
+          <span class="timeline-icon">🔔</span>
+          <div class="timeline-year">THE SACRED VOW</div>
+          <h3 class="timeline-title">Our Temple Wedding</h3>
+          <p class="timeline-desc">Under the sacred arches of the temple, with fire as our witness and mantras as our blessings, we became one. The most beautiful day of my life.</p>
+        </div>
+
+        <div class="timeline-item right" data-delay="600">
+          <span class="timeline-icon">💍</span>
+          <div class="timeline-year">EVERY DAY SINCE</div>
+          <h3 class="timeline-title">A Love That Grows</h3>
+          <p class="timeline-desc">Each sunrise with you is a blessing. Each challenge we face together makes us stronger. You are my temple, my prayer, my everything.</p>
+        </div>
+
+        <div class="timeline-item" data-delay="800">
+          <span class="timeline-icon">✨</span>
+          <div class="timeline-year">TODAY & FOREVER</div>
+          <h3 class="timeline-title">Choosing You Again</h3>
+          <p class="timeline-desc">If given a thousand lifetimes, I would choose you in every single one. Today, I ask you once more — from the depths of my soul.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== RANGOLI DIVIDER ===== -->
+    <div class="rangoli-divider">✦ ❋ ✦ ❋ ✦ ❋ ✦</div>
+
+    <!-- ===== SPECIAL MESSAGE ===== -->
+    <section class="message-section" id="message">
+      <div class="mandala-bg"></div>
+      <h2 class="section-title reveal">💌 A Letter From My Heart 💌</h2>
+      <div class="message-container reveal">
+        <div class="temple-frame">
+          <p class="message-text" id="messageText">
+            My dearest Janu, you are the prayer I never knew my heart was whispering. 
+            Every moment with you feels like a blessing from the divine. 
+            Your smile lights up my world brighter than a thousand temple lamps. 
+            Your love wraps around me like sacred threads, binding us through lifetimes. 
+            In the holy presence of Lord Venkateswara, I promise you — 
+            my love is eternal, my devotion unshakeable, my heart forever yours. 
+            You are not just my partner — you are my sacred journey, my ultimate destination.
+          </p>
+          <div class="gold-underline" id="goldUnderline"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== DIVIDER ===== -->
+    <div class="section-divider">
+      <div class="divider-line"></div>
+      <div class="divider-diya"></div>
+      <div class="divider-line"></div>
+    </div>
+
+    <!-- ===== SACRED FIRE ===== -->
+    <section class="sacred-fire-section reveal-scale" id="sacredFire">
+      <h2 class="section-title">🔥 The Sacred Flame 🔥</h2>
+      <p style="font-family: var(--font-body); font-size: 1.1rem; color: #5a3a2a; max-width: 500px; margin: 0 auto 30px; font-style: italic;">
+        As the sacred fire burns eternal, so does my love for you — unwavering, pure, and infinite.
+      </p>
+      <div class="fire-pit">
+        <div class="fire-glow"></div>
+        <div class="fire-flames">
+          <div class="flame flame-1"></div>
+          <div class="flame flame-2"></div>
+          <div class="flame flame-3"></div>
+        </div>
+        <div class="fire-base"></div>
+      </div>
+      <p class="fire-label">AGNI SAAKSHI</p>
+    </section>
+
+    <!-- ===== RANGOLI DIVIDER ===== -->
+    <div class="rangoli-divider">❁ ✿ ❁ ✿ ❁ ✿ ❁</div>
+
+    <!-- ===== PROPOSAL SECTION ===== -->
+    <section class="proposal-section" id="proposal">
+      <div class="proposal-card reveal-scale">
+        <div class="proposal-emoji">💍</div>
+        <h2 class="proposal-question">Janu, Will You Spend Forever With Me?</h2>
+        <div class="proposal-buttons">
+          <button class="proposal-btn btn-yes" id="btnYes" onclick="celebrate()">❤️ YES</button>
+          <button class="proposal-btn btn-always" id="btnAlways" onclick="celebrate()">😊 ALWAYS YES</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer reveal" id="footer">
+      <p class="footer-text">Forever Yours ❤️</p>
+      <div class="footer-diyas">
+        <span class="footer-diya">🪔</span>
+        <span class="footer-diya">🪔</span>
+        <span class="footer-diya">🪔</span>
+      </div>
+      <p class="footer-blessing">🙏 Blessed by Lord Venkateswara • Tirumala 🙏</p>
+      <p style="margin-top: 15px; font-size: 0.85rem; color: #b89a6a;">🥥 Made with infinite love for Janu 🥥</p>
+    </footer>
+
+  </div><!-- /main-content -->
+
+  <!-- ===== CELEBRATION OVERLAY ===== -->
+  <div class="celebration-overlay" id="celebrationOverlay">
+    <p class="celebration-text">My Janu Said YES 💛</p>
+    <p class="celebration-sub">Together Forever ✨</p>
+  </div>
+
+  <!-- ===== MUSIC CONTROL ===== -->
+  <div class="music-control">
+    <button class="music-btn" id="musicBtn" onclick="toggleMusicPanel()">🎵</button>
+    <div class="music-panel" id="musicPanel">
+      <label>🎶 MUSIC</label>
+      <button class="proposal-btn btn-yes" style="padding:8px 16px; font-size:0.8rem;" id="playPauseBtn" onclick="toggleMusic()">▶ Play</button>
+      <label>📂 UPLOAD SONG</label>
+      <input type="file" accept="audio/*" id="uploadMusic" onchange="handleUpload(event)">
+      <label>📜 PLAYLIST</label>
+      <select id="playlistSelect" onchange="selectTrack(this.value)">
+        <option value="tharime">🎵 Tharime</option>
+      </select>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
